@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script>
+
+    function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+                document.getElementById("demo").innerHTML =
+                    this.responseText
+        };
+        xhttp.open("GET", "http://localhost:5156/WeatherForecast");
+        xhttp.send();
+    }
+</script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <button type="button" onclick="loadDoc()">Send request</button>
+
+    <p id="demo"></p>
+</div>
